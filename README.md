@@ -2,8 +2,8 @@
 
 *Using an access point:*
 
-In the pod:
-`
+In the pod:  
+  
 [root@bpollard-app /]# ls -l /  
 total 4  
 lrwxrwxrwx   1 root root    7 Nov  3 15:22 bin -> usr/bin  
@@ -15,11 +15,11 @@ drwxr-xr-x   2 root root    6 Nov  3 15:22 home
   
 [root@bpollard-app /]# cat /data/info.txt  
 inside of the access point  
-`
-
+  
+  
 *Without an access point:*
 
-`
+  
 [root@bpollard-app /]# ls -l /data/  
 total 8  
 drwxr-xr-x 2 root root 6144 Feb 11 20:04 data00  
@@ -33,8 +33,8 @@ drwxr-xr-x 2 root root 6144 Feb 11 20:04 data00
 /data/data00:  
 total 4  
 -rw-r--r-- 1 root root 27 Feb 11 20:04 info.txt  
-`
-
+  
+  
 *Not* specifying an accesspoint in the configuration and only the EFS ID we can see all the files that have been created on the EFS filsystem.
 
 Only the EFS filesystem

@@ -1,0 +1,54 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-sc
+provisioner: efs.csi.aws.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bpollard-accesspoint
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-f5249601::fsap-0a7ea0fbf2a9ebf6a
+    volumeAttributes:
+      encryptInTransit: "true"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bpollard-accesspoint
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bpollard-app
+spec:
+  containers:
+  - name: app
+    image: centos
+    command: ["/bin/sleep"]
+    args: ["10000"]
+    volumeMounts:
+    - name: bpollard-accesspoint
+      mountPath: /data
+  volumes:
+  - name: bpollard-accesspoint
+    persistentVolumeClaim:
+      claimName: bpollard-accesspoint
+

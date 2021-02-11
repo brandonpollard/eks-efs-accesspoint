@@ -1,4 +1,4 @@
-# Example of not using an access point.
+# Example of using an access point.
 
 *Using an access point:*
 

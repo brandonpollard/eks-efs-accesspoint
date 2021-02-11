@@ -37,8 +37,8 @@ total 4
   
 *Not* specifying an accesspoint in the configuration and only the EFS ID we can see all the files that have been created on the EFS filsystem.
 
-Only the EFS filesystem
-volumeHandle: fs-f5249601
-
-EFS and access point
-volumeHandle: fs-f5249601::fsap-0a7ea0fbf2a9ebf6a
+Only the EFS filesystem  
+volumeHandle: fs-f5249601  
+  
+EFS and access point  
+volumeHandle: fs-f5249601::fsap-0a7ea0fbf2a9ebf6a  
